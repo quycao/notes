@@ -115,6 +115,13 @@ Volumes or data volumes is a way for us to create a place in the host machine wh
 
     > NOTE, if your PWD consists of a directory with space in it you might need to specify the argument as "$(PWD)":/app instead, i.e we need to surround $(PWD) with double quotes.
 
+- For database persisted data
+    ```bash
+    docker volume create postgres-data
+
+    docker run --name some-postgres -v postgres-data:/var/lib/postgresql -e POSTGRES_PASSWORD=mysecretpassword -d postgres_image
+    ```
+
 
 ## 5. Working with databases
 - Create a mysql container, it will auto pull down the image for us if we don't have it
@@ -217,22 +224,22 @@ Example
 ```docker
 // docker-compose.yaml
 
-version: '3'                        # use latest version
+version: '3'                                # use latest version
 services:
-    product-service:                  # app image, container name
+    product-service:                        # app image, container name
         build:
-            context: ./product-service    # where our Dockerfile is
+            context: ./product-service      # where our Dockerfile is
         ports:
             - "8000:3000"
         environment:  
             - env_name=testvalue
-        volumes:  
-            - type: bind                # like 
+        volumes:
+            - type: bind                    # like volume -v in Dockerfile
             source: ./product-service  
             target: /app 
         networks:
-            - product-net               # use network name define in root of docker compose file
-        depends_on: product-db      # wait for another container to start up first
+            - product-net                   # use network name define in root of docker compose file
+        depends_on: product-db              # wait for another container to start up first
 
     inventory-service:
         build:
@@ -248,11 +255,16 @@ services:
             - "MYSQL_DATABASE=Products"
         ports:
             - "8002:3306"
+        volumes:
+            - database-data:/var/lib/mysql      # use docker volume
         networks:
             - products-net
     
 networks:
     products-net:                   # define a network name
+
+volumes:
+    database-data:                  # define docker volume
 ```
 
 Project structure
