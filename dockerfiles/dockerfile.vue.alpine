@@ -1,0 +1,7 @@
+from node:alpine
+
+RUN apk update
+
+RUN npm install -g @vue/cli
+
+EXPOSE 8080
