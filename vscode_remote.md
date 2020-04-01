@@ -3,15 +3,7 @@
 ## 1. Recipe
 -  Install [VS Code Remote-Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers) extension.
 - Write a Dockerfile defining your image with packages and tools required to run and debug your application.
-- Create a .devcontainer in your project and then add Dockerfile and devcontainer.json (see content below) to it
-```json
-{
-    "dockerFile": "Dockerfile",
-    "extensions": [
-        "ms-vscode.go"
-    ]
-}
-```
+- Create a .devcontainer in your project and then add Dockerfile and devcontainer.json to it, if you want to use the docker image that is on your local machine already, you can no need the docker file and specify the docker image in the devcontainer.json file.
 - Open your project - that containing your .devcontainer folder with VS Code, it will automatically detect it and ask you to reopen the project in container mode.
 - Then VS Code will build Docker images and containers based on your Dockerfile (only for first time) and setup some additional required packages so that it can work containerizedly.
 - After the process is finished, you are able to use VS Code as normal and have everything actually run inside containers.
