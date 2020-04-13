@@ -45,7 +45,7 @@ RUN go get \
 # Expose service ports.
 EXPOSE 8000
 ```
-- Then I write a devcontainerl.json file
+- Then I write a devcontainer.json file
 ```json
 {
     "image": "vscode_go:debian",
