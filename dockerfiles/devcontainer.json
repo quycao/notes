@@ -1,9 +1,19 @@
 {
-"image": "golang-vscode",    
-"appPort": [
-        "8000:8000"
-    ],
+    "name": "Dev Container name",
+    "dockerFile": "Dockerfile",
+    "image": "golang-vscode",
+    "settings": {
+        "terminal.integrated.shell.linux": "/bin/bash"
+    },
     "extensions": [
         "ms-vscode.go"
-    ]
+    ],
+    "appPort": [
+        "8000:8000"
+    ],
+    "forwardPorts": [
+        8080,
+        5000
+    ],
+    "remoteUser": "node"
 }
