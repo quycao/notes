@@ -57,7 +57,7 @@ EXPOSE 8000
     "extensions": [                         // Extensions which should be installed in Visual Studio Code by default
         "ms-vscode.go"
     ],
-    "appPort": [
+    "appPort": [                            // Mapping host port : container port
         "8000:8000"
     ],
     "forwardPorts": [                       // The ports which should be forwarded from the container to your localhost, to be able to access, e.g. web pages. Here port 8080 is forward on which the UI5 tooling serves the UI5 application. Port 35729 is forwarded too, for the live reload functionality.
