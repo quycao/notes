@@ -77,7 +77,7 @@ docker run -p 8000:3000 chrisnoring/node
 ```
 
 
-## 4. Using a volume
+## 5. Using a volume
 Volumes or data volumes is a way for us to create a place in the host machine where we can write files so they are persisted. Why would we want that? Well, when we are under development we might need to put the application in a certain state so we don’t have to start from the beginning. Typically we would want to store things like log files, JSON files and perhaps even databases (SQLite ) on a volume
 
 - Creating and managing a volume
@@ -123,7 +123,7 @@ Volumes or data volumes is a way for us to create a place in the host machine wh
     ```
 
 
-## 5. Working with databases
+## 6. Working with databases
 - Create a mysql container, it will auto pull down the image for us if we don't have it
     ```bash
     docker run --name mysql_db -e MYSQL_ROOT_PASSWORD=complexpassword -d -p 8000:3306 mysql
@@ -191,7 +191,7 @@ Volumes or data volumes is a way for us to create a place in the host machine wh
     ```
 
 
-## 6. Docker Compose
+## 7. Docker Compose
 
 If we have more than two containers the amount of commands we need to type suddenly grows in a linear way.
 
@@ -458,5 +458,19 @@ docker run -p 8000:3000 --name [default name]/product-service
 
             app.listen(port, () => console.log(`Example app listening on port ${port}!`))
             ```
+
+## 8. The difference between “expose” and “publish” a port in Docker    
+Basically, you have three options:
+- Neither specify EXPOSE nor -p
+- Only specify EXPOSE
+- Specify EXPOSE and -p
+
+1) If you specify neither EXPOSE nor -p, the service in the container will only be accessible from inside the container itself.
+
+2) If you EXPOSE a port, the service in the container is not accessible from outside Docker, but from inside other Docker containers. So this is good for inter-container communication.
+
+3) If you EXPOSE and -p a port, the service in the container is accessible from anywhere, even outside Docker.
+
+PS: If you do -p, but do not EXPOSE, Docker does an implicit EXPOSE. This is because if a port is open to the public, it is automatically also open to other Docker containers. Hence -p includes EXPOSE. That's why I didn't list it above as a fourth case.
 
 ### Reference: https://softchris.github.io/pages/docker-one.html
