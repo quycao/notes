@@ -7,7 +7,7 @@ RUN apk update && apk add --no-cache git build-base
 
 # Install essential tools for Go development.
 RUN go get \
-        golang.org/x/tools/gopls \
+        golang.org/x/tools/gopls@latest \
         github.com/uudashr/gopkgs/cmd/gopkgs \
         github.com/ramya-rao-a/go-outline \
         github.com/acroca/go-symbols \
