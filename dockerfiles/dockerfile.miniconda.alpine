@@ -1,0 +1,6 @@
+FROM continuumio/miniconda3:4.9.2-alpine
+
+# Install git and build-base (gcc, musl-dev...) for delve debug.
+# Git is required for fetching the dependencies.
+RUN apk update && apk add --no-cache xauth
+
