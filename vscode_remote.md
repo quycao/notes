@@ -52,6 +52,10 @@ EXPOSE 8000
     "name": "Dev Container name",           // A free to define name
     // "dockerFile": "dockerfile_debian",   // The path to the Dockerfile which defines the Docker image. It is also possible to directly use an existing Docker image or a Docker Compose file
     "image": "vscode_go:debian",
+    "runArgs": [
+        "--network=hzo_portal_network",
+	"--privileged"
+    ],
     "settings": {                           // Settings which should be applied to Visual Studio Code. Here the default terminal is set to bash
         "terminal.integrated.shell.linux": "/bin/bash"
     },
