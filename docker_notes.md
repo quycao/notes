@@ -166,7 +166,7 @@ Volumes or data volumes is a way for us to create a place in the host machine wh
 
     - Now that we have our network we just need to create each container with the newly created network as an additional argument
         ```bash
-        docker run -d -p 8000:3000 --net network_nam --name container_name image_name
+        docker run -d -p 8001:3000 --net network_name --name app_container_name app_image_name
 
         docker run -p 8000:3306 --net network_name --name db_container_name -e MYSQL_ROOT_PASSWORD=complexpassword -d db_image_name
         ```
