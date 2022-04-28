@@ -8,21 +8,19 @@ RUN apk update && apk add --no-cache git build-base
 
 # Install essential tools for Go development.
 # Note that you have to enable LanguageServer for go in vscode
-RUN go install \
-    github.com/ramya-rao-a/go-outline@latest \
-    github.com/cweill/gotests/gotests@latest \
-    github.com/fatih/gomodifytags@latest \
-    github.com/josharian/impl@latest \
-    github.com/haya14busa/goplay/cmd/goplay@latest \
-    github.com/go-delve/delve/cmd/dlv@latest \
-    honnef.co/go/tools/cmd/staticcheck@latest \
-    golang.org/x/tools/gopls@latest 2>&1 \
-    # && mv $GOPATH/bin/gocode $GOPATH/bin/gocode-gomod \
-    # && go install github.com/mdempsky/gocode@latest 2>&1 \
-    # Clean up.
-    && rm -rf $GOPATH/src \
-    && rm -rf $GOPATH/pkg
-	
+RUN go install github.com/ramya-rao-a/go-outline@latest
+RUN go install github.com/cweill/gotests/gotests@latest
+RUN go install github.com/fatih/gomodifytags@latest
+RUN go install github.com/josharian/impl@latest
+RUN go install github.com/haya14busa/goplay/cmd/goplay@latest
+RUN go install github.com/go-delve/delve/cmd/dlv@latest
+RUN go install honnef.co/go/tools/cmd/staticcheck@latest
+RUN go install golang.org/x/tools/gopls@latest
+# && mv $GOPATH/bin/gocode $GOPATH/bin/gocode-gomod \
+# && go install github.com/mdempsky/gocode@latest 2>&1 \
+# Clean up.
+RUN rm -rf $GOPATH/src && rm -rf $GOPATH/pkg
+
 
 # Expose service ports.
 EXPOSE 8000
