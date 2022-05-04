@@ -5,6 +5,11 @@
     "settings": {
         "terminal.integrated.shell.linux": "/bin/bash"
     },
+    "remoteEnv": {
+        "PATH": "/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "GOLANG_VERSION": "1.18.1",
+        "GOPATH": "/go"
+    },
     "extensions": [
         "ms-vscode.go"
     ],
