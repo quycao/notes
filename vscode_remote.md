@@ -89,7 +89,11 @@ I pretty much have everything I need. However, there're still some limitations t
 - I have to work around a bit to be able to use VS Code Git Push command, which requires my SSH credentials bound to the containers.
 - I could not do GPG sign my commit using VS Code Git Commit command. It's possible but it requires quite a lot of work to be able to forward GPG commands from containers to host machines.
 
-## 5. Notes
+## 5. Backup and restore container to other offline host
+- Export container and docker volume "vscode" to tar.gz file
+- Import docker volume and then container to new host
+
+## 6. Notes
 To use gopls for better experiences and performance, set the useLanguageServer option true in VSCode > File > Preferences > Settings
 
 
