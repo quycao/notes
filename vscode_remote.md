@@ -59,6 +59,11 @@ EXPOSE 8000
     "settings": {                           // Settings which should be applied to Visual Studio Code. Here the default terminal is set to bash
         "terminal.integrated.shell.linux": "/bin/bash"
     },
+    "remoteEnv": {
+        "PATH": "/go/bin:/usr/local/go/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+        "GOLANG_VERSION": "1.18.1",
+        "GOPATH": "/go"
+    },
     "extensions": [                         // Extensions which should be installed in Visual Studio Code by default
         "ms-vscode.go"
     ],
