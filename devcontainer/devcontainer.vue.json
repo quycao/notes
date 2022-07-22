@@ -1,0 +1,14 @@
+{
+    "name": "highhouse_web",
+    "image": "highhouse_web:16.16-alpine3.15",
+    "settings": {
+        "terminal.integrated.defaultProfile.linux": "sh"
+    },
+    "extensions": [
+        "vue.volar"
+    ],
+    "appPort": [
+        "8080:8080"
+    ] //,
+    //"remoteUser": "node"
+}
