@@ -1,7 +1,7 @@
-from node:alpine
+from node:16.16-alpine3.16
 
-RUN apk update
+RUN apk update && apk add --no-cache git
 
-RUN npm install -g @vue/cli
+RUN npm install --location=global @vue/cli
 
 EXPOSE 8080
