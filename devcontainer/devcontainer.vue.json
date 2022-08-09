@@ -1,19 +1,22 @@
 {
     "name": "highhouse_web",
-    "image": "highhouse_web:16.16-alpine3.15",
+    "image": "vue:node16.16-alpine3.16",
     "runArgs": [
-        "--name=highhouse_api"
+        "--name=highhouse_web"
         // "--network=highhouse_network",
-	    // "--privileged"
+	// "--privileged"
     ],
+    "remoteEnv": {
+        "CHOKIDAR_USEPOLLING": "true"   // fix issue hot reload not working in wsl2
+    },
     "settings": {
         "terminal.integrated.defaultProfile.linux": "sh"
     },
     "extensions": [
-        "vue.volar"
+        "octref.vetur"
     ],
     "appPort": [
         "8080:8080"
-    ] //,
-    //"remoteUser": "node"
+    ],
+    "remoteUser": "node"
 }
