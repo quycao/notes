@@ -4,17 +4,18 @@
     "runArgs": [
         "--name=highhouse_web"
         // "--network=highhouse_network",
-	// "--privileged"
+        // "--privileged"
     ],
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "vue.volar"
+            ]
+        }
+    }
     "remoteEnv": {
         "CHOKIDAR_USEPOLLING": "true"   // fix issue hot reload not working in wsl2
     },
-    "settings": {
-        "terminal.integrated.defaultProfile.linux": "sh"
-    },
-    "extensions": [
-        "octref.vetur"
-    ],
     "appPort": [
         "8080:8080"
     ],
